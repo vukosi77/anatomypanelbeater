@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Enquiry – Instant Panel Beating &amp; Respray Estimate | Anatomy; A Panel Beaters</title>
+  <meta name="description" content="Enquire about panel beating, respraying, chassis straightening or fleet repairs. Get an instant indicative cost, turnaround time and availability from Anatomy; A Panel Beaters.">
+  <meta name="keywords" content="panel beating quote, respray cost Johannesburg, car repair estimate, panel beater availability, fleet repair quote">
+  <meta name="author" content="Anatomy; A Panel Beaters">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#d35400">
+  <link rel="canonical" href="https://anatomy-panel-beaters.github DESKTOP.app/enquiry.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Anatomy; A Panel Beaters">
+  <meta property="og:title" content="Service Enquiry – Instant Panel Beating &amp; Respray Estimate | Anatomy; A Panel Beaters">
+  <meta property="og:description" content="Enquire about panel beating, respraying, chassis straightening or fleet repairs. Get an instant indicative cost, turnaround time and availability from Anatomy; A Panel Beaters.">
+  <meta property="og:url" content="https://anatomy-panel-beaters.github DESKTOP.app/enquiry.html">
+  <meta property="og:image" content="https://anatomy-panel-beaters.github DESKTOP.app/images/anatomy-panel-beaters-logo.jpeg">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/part3.css">
+  <script src="js/script (1).js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <h1>Anatomy; A Panel Beaters</h1>
+  <nav aria-label="Main navigation">
+    <a href="home.html">Home|</a>
+    <a href="about_us.html">About us|</a>
+    <a href="products_and_services.html">Products and services|</a>
+    <a href="gallery.html">Gallery|</a>
+    <a href="news_and_update.html">News and updates|</a>
+    <a href="enquiry.html">Enquiry|</a>
+    <a href="contact.html">Contact us|</a>
+  </nav>
+</header>
+
+<img src="images/log.jpeg" width="2000" height="100" alt="Anatomy; A Panel Beaters logo">
+
+<main id="main">
+  <section>
+    <h2>Service Enquiry</h2>
+    <p>Tell us about the job and we'll show you an indicative cost, how long it should take and when we can fit you in. For a general message to the workshop, use the <a href="contact.html">contact form</a> instead.</p>
+  </section>
+
+  <section>
+    <h2>Get an Estimate</h2>
+    <form id="enquiryForm" action="#" method="post" novalidate>
+      <div class="field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" data-validate="name" autocomplete="name" required maxlength="60">
+      </div>
+      <div class="field">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" data-validate="phone" autocomplete="tel" placeholder="011 555 1212" required>
+      </div>
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" data-validate="email" autocomplete="email" required maxlength="100">
+      </div>
+      <div class="field">
+        <label for="service">Service Needed</label>
+        <select id="service" name="service" required>
+          <option value="">Choose a service…</option>
+          <option value="panel">Panel Beating &amp; Dent Repair</option>
+          <option value="paint">Paint &amp; Colour Matching</option>
+          <option value="chassis">Chassis &amp; Frame Straightening</option>
+          <option value="pdr">Paintless Dent Removal</option>
+          <option value="insurance">Insurance Claim Assistance</option>
+          <option value="fleet">Fleet &amp; Bulk Repairs</option>
+        </select>
+      </div>
+      <div class="field" id="vehicleRow" hidden>
+        <label for="vehicle">Vehicle Type</label>
+        <select id="vehicle" name="vehicle" required>
+          <option value="">Choose a vehicle type…</option>
+          <option value="hatch">Hatchback</option>
+          <option value="sedan">Sedan</option>
+          <option value="suv">SUV / Bakkie</option>
+          <option value="van">Van / Minibus</option>
+        </select>
+      </div>
+      <div class="field" id="severityRow" hidden>
+        <label for="severity">Damage Severity</label>
+        <select id="severity" name="severity" required>
+          <option value="">Choose severity…</option>
+          <option value="minor">Minor (scratches, small dents)</option>
+          <option value="moderate">Moderate (creases, cracked paint)</option>
+          <option value="severe">Severe (structural or crumpled panels)</option>
+        </select>
+      </div>
+      <div class="field" id="panelsRow" hidden>
+        <label for="panels">Panels Affected (1–12)</label>
+        <input type="number" id="panels" name="panels" min="1" max="12" step="1" required>
+      </div>
+      <div class="field" id="fleetRow" hidden>
+        <label for="vehicles">Number of Vehicles (2–500)</label>
+        <input type="number" id="vehicles" name="vehicles" min="2" max="500" step="1" required>
+      </div>
+      <div class="field checkbox-field">
+        <label for="insured"><input type="checkbox" id="insured" name="insured"> This is an insurance claim — please assist</label>
+      </div>
+      <div class="field">
+        <label for="dropoff">Preferred Drop-off Date</label>
+        <input type="date" id="dropoff" name="dropoff" data-validate="date" required>
+        <p class="hint">Monday to Saturday, within the next 90 days.</p>
+      </div>
+      <div class="field">
+        <label for="details">Extra Details (optional)</label>
+        <textarea id="details" name="details" rows="4" maxlength="500" data-counter="#detailsCount" placeholder="Make, model, year, where the damage is…"></textarea>
+        <p class="hint" id="detailsCount"></p>
+      </div>
+      <button type="submit" class="btn">Get My Estimate</button>
+    </form>
+    <div id="enquiryResult" role="status" aria-live="polite" hidden></div>
+  </section>
+</main>
+
+<footer>
+  <h3>Anatomy; A Panel Beaters</h3>
+  <address>
+  <p>14 Jorissen Road, Braamfontein<br>
+  Johannesburg, 2093, South Africa</p>
+
+  <p>Phone: <a href="tel:+27115551212">+27 11 555 1212</a><br>
+  Email: <a href="mailto:workshop@anatomy.co.za">workshop@anatomy.co.za</a></p>
+  </address>
+
+  <p>Hours: Mon–Fri 07:00–17:00, Sat 08:00–12:00</p>
+
+  <p>Follow us:
+    <a href="https://www.facebook.com/" rel="noopener noreferrer me" target="_blank">Facebook</a> |
+    <a href="https://www.instagram.com/" rel="noopener noreferrer me" target="_blank">Instagram</a> |
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Anatomy+A+Panel+Beaters+Braamfontein" rel="noopener noreferrer" target="_blank">Find us on Google Maps</a></p>
+
+  <p>© ST10511924; A Panel Beaters. All rights reserved</p>
+</footer>
+
+</body>
+</html>
