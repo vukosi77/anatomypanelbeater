@@ -3,7 +3,7 @@
 Static multi-page website for an independent panel beating workshop in Braamfontein, Johannesburg.
 Student number: ST10511924
 
-- **Live site:** https://anatomy-panel-beaters.netlify.app  *(replace with your real Netlify URL)*
+- **Live site:**https://vukosi77.github.io/anatomypanelbeater/  
 - **Repository:** *(add your GitHub link)*
 
 ## Pages
