@@ -1,0 +1,414 @@
+/* ==========================================================================
+   Anvil & Arc Panel Beaters — site stylesheet
+   Design concept: the workshop job-card. Panels, stamps, measuring-bench
+   grid lines and stencil type — the visual language of the shop floor,
+   not a generic corporate template.
+   ========================================================================== */
+
+:root {
+  /* Color tokens */
+  --ink:        #461a99;   /* body copy, near-black steel */
+  --panel:      #8b217b;   /* dark bay walls (header/footer) */
+  --steel:      #565d63;   /* secondary text / muted steel */
+  --chrome:     #c9cfd3;   /* hairlines, dividers */
+  --paper:      #f3f1ea;   /* page background, workshop paper */
+  --card:       #ffffff;   /* card surfaces */
+  --safety:     #2ce8df;   /* safety-orange accent — spray gun / hazard tape */
+  --safety-dark:#9a16e7;   /* hover / pressed state for accent */
+
+  /* Type */
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body:    'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --max-width: 1080px;
+  --radius: 2px;
+  --gap: 1.5rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    linear-gradient(var(--paper), var(--paper)) fixed,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 39px,
+      rgba(13, 115, 167, 0.05) 39px,
+      rgba(28, 104, 143, 0.05) 40px
+    );
+  background-blend-mode: normal;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a {
+  color: var(--safety-dark);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+a:hover { color: var(--safety); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--safety);
+  outline-offset: 2px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+  text-transform: uppercase;
+  border-left: 6px solid var(--safety);
+  padding-left: 0.6rem;
+  margin: 0 0 1.25rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+table { border-collapse: collapse; }
+
+/* ---------- Header ---------- */
+header {
+  background: var(--panel);
+  color: var(--paper);
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 0 var(--safety);
+}
+
+header h1 {
+  color: var(--paper);
+  font-size: clamp(1.3rem, 1rem + 1.5vw, 1.9rem);
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+}
+
+header h1::before {
+  content: '';
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  background: var(--safety);
+  margin-right: 0.5em;
+  transform: rotate(45deg);
+  vertical-align: middle;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem clamp(0.5rem, 2vw, 1.5rem);
+}
+
+nav a {
+  color: var(--chrome);
+  border-bottom: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.1rem;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--safety);
+  transition: right 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--paper);
+}
+
+nav a:hover::after,
+nav a:focus-visible::after { right: 0; }
+
+/* the logo image right under the header, on every page */
+body > img[alt="logo"] {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* ---------- Layout shell ---------- */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+main > section {
+  background: var(--card);
+  border: 1px solid var(--chrome);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 1px 2px rgba(28, 30, 31, 0.06);
+}
+
+main > section > p:first-of-type { margin-top: 0; }
+
+/* ---------- Job-card articles (services, gallery, news) ---------- */
+section article {
+  position: relative;
+  border: 1px dashed var(--chrome);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  background: var(--paper);
+}
+
+section article:last-child { margin-bottom: 0; }
+
+section article h3 {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: var(--safety-dark);
+  letter-spacing: 0.03em;
+}
+
+section article img {
+  margin-bottom: 0.6rem;
+}
+
+/* gallery: pair before/after shots side by side */
+section article:has(img + img) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem 1rem;
+  align-items: start;
+}
+
+section article:has(img + img) h3,
+section article:has(img + img) p {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Lists ---------- */
+ul, ol {
+  padding-left: 1.4rem;
+}
+
+li { margin-bottom: 0.35rem; }
+
+/* stat list on About page */
+section > ul:only-of-type {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+section > ul:only-of-type li {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: var(--panel);
+  color: var(--paper);
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--safety);
+}
+
+/* ---------- Table (hours) ---------- */
+table {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+table th, table td {
+  border: 1px solid var(--chrome);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+
+table th {
+  background: var(--panel);
+  color: var(--paper);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+table tr:nth-child(even) td { background: var(--paper); }
+
+/* ---------- Call-to-action links (e.g. "Book an Assessment") ---------- */
+main > section:last-of-type {
+  background: var(--panel);
+  color: var(--paper);
+  text-align: center;
+  border: none;
+}
+
+main > section:last-of-type h2 {
+  color: var(--paper);
+  border-left-color: var(--safety);
+}
+
+main > section:last-of-type a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: var(--safety);
+  color: var(--panel);
+  border: none;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+main > section:last-of-type a:hover {
+  background: var(--paper);
+  transform: translateY(-1px);
+}
+
+/* ---------- Forms (contact page) ---------- */
+form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 32rem;
+}
+
+label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--steel);
+}
+
+input, select, textarea {
+  font: inherit;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--chrome);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  width: 100%;
+}
+
+textarea { resize: vertical; }
+
+button[type="submit"] {
+  justify-self: start;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  background: var(--safety);
+  color: var(--panel);
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button[type="submit"]:hover { background: var(--safety-dark); color: var(--paper); }
+
+/* video (home page) */
+video {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--chrome);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--panel);
+  color: var(--chrome);
+  padding: 2rem clamp(1rem, 4vw, 2.5rem);
+  font-size: 0.9rem;
+}
+
+footer h3 {
+  color: var(--paper);
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+footer a {
+  color: var(--chrome);
+  border-bottom-color: var(--steel);
+}
+
+footer a:hover { color: var(--safety); }
+
+footer p:last-child {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--steel);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--steel);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  header { position: static; }
+  nav { gap: 0.4rem 1rem; }
+  section article:has(img + img) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  main { padding-inline: 1.5rem; }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
